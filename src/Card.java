@@ -10,6 +10,9 @@ public class Card {
         this.shape_of_card = shape_of_card;
     }
 
+    public Card() {
+    }
+
     public int getNumberOfCard (){
         return number_of_card;
     }
