@@ -1,8 +1,12 @@
+package HW1;
+
+import HW1.Main;
+
 import java.util.ArrayList;
 
 
 public class Deck extends Card {
-     private ArrayList<Card> cardDeck = new ArrayList<>();
+      public ArrayList<Card> cardDeck = new ArrayList<>();
 
     public Deck(Boolean make){
         int i = 0;
@@ -27,8 +31,14 @@ public class Deck extends Card {
 
     }
 
-    public ArrayList<Card> getCardDeck() {
-        return cardDeck;
+    public Deck(int j, Shape spades) {
+        super(j, spades);
+    }
+
+    public Card getCardDeck() {
+        int length = this.cardDeck.size();
+        Card lastOne = this.cardDeck.get(length - 1);
+        return lastOne;
     }
 
     public void setCardDeck(ArrayList<Card> CardDeck){
@@ -52,7 +62,11 @@ public class Deck extends Card {
 
     public void shuffle(){
         for (int i=0; i<50; i++){
-            int rnd1 =
+            int rnd1 = Main.rnd.nextInt(51);
+            int rnd2 = Main.rnd.nextInt(51);
+            Card saveMe = this.cardDeck.get(rnd2);
+            this.cardDeck.set(rnd2,this.cardDeck.get(rnd1));
+            this.cardDeck.set(rnd1, saveMe);
         }
     }
 }

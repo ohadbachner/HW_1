@@ -1,3 +1,5 @@
+package HW1;
+
 public enum Shape {
     Clubs("♠"),
     Diamonds("♦"),

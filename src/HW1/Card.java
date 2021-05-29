@@ -1,3 +1,5 @@
+package HW1;
+
 public class Card {
     // int of the number of the card
      private int number_of_card;
@@ -12,6 +14,7 @@ public class Card {
 
     public Card() {
     }
+
 
     public int getNumberOfCard (){
         return number_of_card;
