@@ -3,12 +3,12 @@ package HW1;
 public class Player {
     private String name;
     public Deck gameDeck;
-    public Deck winingDeck;
+    public Deck winningDeck;
 
-    public Player(String name, Deck gameDeck, Deck winingDeck){
+    public Player(String name, Deck gameDeck, Deck winningDeck){
         this.name = name;
         this.gameDeck = new Deck(false);
-        this.winingDeck = new Deck(false);
+        this.winningDeck = new Deck(false);
     }
 
     public Deck getGameDeck() {
@@ -16,7 +16,7 @@ public class Player {
     }
 
     public Deck getWiningDeck() {
-        return winingDeck;
+        return winningDeck;
     }
 
     public String getName() {
@@ -31,8 +31,8 @@ public class Player {
         this.name = name;
     }
 
-    public void setWiningDeck(Deck winingDeck) {
-        this.winingDeck = winingDeck;
+    public void setWiningDeck(Deck winningDeck) {
+        this.winningDeck = winningDeck;
     }
 
     public void addCardGameDeck(Card card){
@@ -40,7 +40,7 @@ public class Player {
     }
 
     public void addCardWiningDeck(Card card) {
-        this.winingDeck.addCard(card);
+        this.winningDeck.addCard(card);
     }
 
     public Card drawCard(){
@@ -48,7 +48,7 @@ public class Player {
     }
 
     public boolean outOfCards(){
-        return this.gameDeck.isEmpty() && this.winingDeck.isEmpty();
+        return this.gameDeck.isEmpty() && this.winningDeck.isEmpty();
     }
 
     public String toString(){

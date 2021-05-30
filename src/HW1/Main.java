@@ -21,7 +21,7 @@ public class Main {
             scanner.nextLine();
             String player1 = scanner.nextLine();
             String player2 = scanner.nextLine();
-            WarGame game = new WarGame(player1, player2);
+            WarGame game = new WarGame(player1, player2); //check this
             String winner = game.start();
             System.out.println("+++++++++++++++++++++++++++++++++++++++");
             System.out.println(winner + " won the game!\n\n");

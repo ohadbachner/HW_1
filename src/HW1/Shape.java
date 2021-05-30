@@ -1,9 +1,9 @@
 package HW1;
 
 public enum Shape {
-    Clubs("♠"),
+    Spades("♠"),
     Diamonds("♦"),
-    Spades("♣"),
+    Clubs("♣"),
     Hearts("♥");
 
     private String value;

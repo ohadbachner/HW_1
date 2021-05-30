@@ -8,11 +8,25 @@ import java.util.ArrayList;
 public class Deck extends Card {
       public ArrayList<Card> cardDeck = new ArrayList<>();
 
-    public Deck(Boolean make){
+    public Deck(Boolean fillDeck){
         int i = 0;
-        if (make){
-            for (int j = 1; j<= 13; j++) {
-                this.cardDeck.set(i, new Card(j , Shape.Clubs));
+        int j = 0;
+        int shapeNumber = 0;
+        Shape[] shapes = new Shape[]{Shape.Spades, Shape.Diamonds, Shape.Clubs, Shape.Hearts};
+        if (fillDeck) {
+            while (i < 52) {
+                j = 1;
+                while (j <= 13) {
+                    this.cardDeck.set(i, new Card(j, shapes[shapeNumber]));
+                    j++;
+                    i++;
+                }
+                shapeNumber++;
+            }
+        }
+
+            /*for (int j = 1; j<= 13; j++) {
+                this.cardDeck.set(i, new Card(j , Shape.Spades));
                 i ++;
                 }
             for (int j = 1; j<= 13; j++) {
@@ -20,20 +34,20 @@ public class Deck extends Card {
                 i ++;
             }
             for (int j = 1; j<= 13; j++) {
-                this.cardDeck.set(i, new Card(j , Shape.Spades));
+                this.cardDeck.set(i, new Card(j , Shape.Clubs));
                 i ++;
             }
             for (int j = 1; j<= 13; j++) {
                 this.cardDeck.set(i, new Card(j , Shape.Hearts));
                 i ++;
             }
-        }
+        }*/
 
     }
 
-    public Deck(int j, Shape spades) {
-        super(j, spades);
-    }
+    //public Deck(int j, Shape spades) { //why do we need this??
+       // super(j, spades);
+    //}
 
     public Card getCardDeck() {
         int length = this.cardDeck.size();
