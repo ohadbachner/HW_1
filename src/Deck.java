@@ -21,24 +21,6 @@ public class Deck extends Card {
             }
         }
 
-            /*for (int j = 1; j<= 13; j++) {
-                this.cardDeck.set(i, new Card(j , Shape.Spades));
-                i ++;
-                }
-            for (int j = 1; j<= 13; j++) {
-                this.cardDeck.set(i, new Card(j , Shape.Diamonds));
-                i ++;
-            }
-            for (int j = 1; j<= 13; j++) {
-                this.cardDeck.set(i, new Card(j , Shape.Clubs));
-                i ++;
-            }
-            for (int j = 1; j<= 13; j++) {
-                this.cardDeck.set(i, new Card(j , Shape.Hearts));
-                i ++;
-            }
-        }*/
-
     }
 
     //public Deck(int j, Shape spades) { //why do we need this??
@@ -61,8 +43,8 @@ public class Deck extends Card {
 
     public Card removeTopCard(){
             int length = this.cardDeck.size();
-            Card lastOne = this.cardDeck.get(length - 1 );
-            this.cardDeck.remove(length -1 );
+            Card lastOne = this.cardDeck.get(length - 1);
+            this.cardDeck.remove(length - 1);
             return lastOne;
     }
 

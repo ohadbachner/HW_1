@@ -64,16 +64,31 @@ public class WarGame {
     public String start() {
         System.out.println("Initializing the game...");
         int roundNumber = 1;
+        boolean firstRound = true;
         initializeGame();
-
+        boolean flag = true;
         //while (!player1.outOfCards() || !player2.outOfCards()) {
         while (true) {
-            System.out.println("-------------------------Round number" +
-                    " " + roundNumber + " -------------------------");
+            if(flag) {
+                System.out.println("-------------------------Round number" +
+                        " " + roundNumber + " -------------------------");
+            }
+            if (firstRound){
+                    this.player1Deck.addCard(player1.drawCard());
+                    this.player2Deck.addCard(player2.drawCard());
+                firstRound = false;
+            }
+
             if (player1.outOfCards()) {
+                roundNumber = 0;
+                flag = true;
+                firstRound = true;
                 return player2.getName();
             }
             if (player2.outOfCards()) {
+                roundNumber = 0;
+                flag = true;
+                firstRound = true;
                 return player1.getName();
             }
 
@@ -100,17 +115,37 @@ public class WarGame {
                 for (int i = 0; i < player1Deck.cardDeck.size(); i++) {
                     this.player1.winningDeck.addCard(player1Deck.removeTopCard());
                     this.player1.winningDeck.addCard(player2Deck.removeTopCard());
-                    System.out.println(player1 + " won");
                 }
+                System.out.println(player1 + " won");
             } else if (result == -1) {
                 for (int i = 0; i < player1Deck.cardDeck.size(); i++) {
                     this.player2.winningDeck.addCard(player1Deck.removeTopCard());
                     this.player2.winningDeck.addCard(player2Deck.removeTopCard());
-                    System.out.println(player2 + " won");
                 }
-            } else {
+                System.out.println(player2 + " won");
+            }
+            else {
+                    flag = false;
                     System.out.println("Starting a war...");
                     for (int j = 0; j < 2; j++) {
+                        if (player1.outOfCards()) {
+                            return player2.getName();
+                        }
+                        if (player2.outOfCards()) {
+                            return player1.getName();
+                        }
+                        if (player1.gameDeck.isEmpty()) {
+                            player1.winningDeck.shuffle();
+                            while (!player1.winningDeck.isEmpty()) {
+                                this.player1.gameDeck.addCard(player1.winningDeck.removeTopCard());
+                            }
+                        }
+                        if (player2.gameDeck.isEmpty()) {
+                            player2.winningDeck.shuffle();
+                            while (!player2.winningDeck.isEmpty()) {
+                                this.player2.gameDeck.addCard(player2.winningDeck.removeTopCard());
+                            }
+                        }
                         this.player1Deck.addCard(player1.drawCard());
                         System.out.println(player1 + " drew a war card");
                         this.player2Deck.addCard(player2.drawCard());
@@ -120,6 +155,7 @@ public class WarGame {
 
                 }
             if (result != 0){
+                flag = true;
             roundNumber++;
         }
         }
