@@ -1,5 +1,3 @@
-package HW1;
-
 public class Card {
     // int of the number of the card
     private int numberOfCard;
@@ -47,20 +45,21 @@ public class Card {
         // override the toString and will return the number and
         if (this.numberOfCard >= 2 && this.numberOfCard < 11) {
             return this.numberOfCard + " of " + this.shapeOfCard;
-        } else {
+        }
+        else {
             switch (this.numberOfCard) {
                 case 1:
                     return "Ace of " + this.shapeOfCard;
                 case 11:
-                    return "Prince of " + this.shapeOfCard;
+                    return "jack of " + this.shapeOfCard;
                 case 12:
                     return "Queen of " + this.shapeOfCard;
                 case 13:
                     return "King of " + this.shapeOfCard;
             }
             // need to check if we can throw exception that not make us to return a anything
-            return "will not get here";
-        }
 
+        }
+        return "will not get here";
     }
 }
