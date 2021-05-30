@@ -1,5 +1,3 @@
-package HW1;
-
 public enum Shape {
     Spades("♠"),
     Diamonds("♦"),

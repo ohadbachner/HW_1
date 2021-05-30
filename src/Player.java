@@ -1,15 +1,14 @@
-package HW1;
-
 public class Player {
     private String name;
     public Deck gameDeck;
     public Deck winningDeck;
 
-    public Player(String name, Deck gameDeck, Deck winningDeck){
+    public Player(String name){
         this.name = name;
         this.gameDeck = new Deck(false);
         this.winningDeck = new Deck(false);
     }
+
 
     public Deck getGameDeck() {
         return gameDeck;
