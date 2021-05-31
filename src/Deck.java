@@ -23,10 +23,6 @@ public class Deck extends Card {
 
     }
 
-    //public Deck(int j, Shape spades) { //why do we need this??
-       // super(j, spades);
-    //}
-
     public Card getCardDeck() {
         int length = this.cardDeck.size();
         Card lastOne = this.cardDeck.get(length - 1);
@@ -46,6 +42,12 @@ public class Deck extends Card {
             Card lastOne = this.cardDeck.get(length - 1);
             this.cardDeck.remove(length - 1);
             return lastOne;
+    }
+
+    public Card removeFirstCard(){
+        Card firstOne = this.cardDeck.get(0);
+        this.cardDeck.remove(0);
+        return firstOne;
     }
 
     public boolean isEmpty(){
