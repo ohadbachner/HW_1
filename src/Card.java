@@ -31,10 +31,10 @@ public class Card {
     }
 
     public int compare(Card other) {
-        // will compare between 2 cards and return diffrent values
-        if (this.numberOfCard < other.numberOfCard) {
+        // will compare between 2 cards and return diffrents values
+        if (this.getNumberOfCard() < other.getNumberOfCard()) {
             return -1;
-        } else if (this.numberOfCard == other.numberOfCard) {
+        } else if (this.getNumberOfCard() == other.getNumberOfCard()) {
             return 0;
         } else {
             return 1;

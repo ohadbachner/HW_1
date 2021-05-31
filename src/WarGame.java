@@ -49,11 +49,11 @@ public class WarGame {
         Player savePlayer;
         int startingOne = this.player1.getName().compareTo(this.player2.getName());
         if (startingOne > 0) {
-            savePlayer = player1;
-            this.player1 = player2;
+            savePlayer = this.player1;
+            this.player1 = this.player2;
             this.player2 = savePlayer;
         }
-            for (int i = 0; i < allCards.cardDeck.size(); i += 2) {
+            for (int i = 0; i < 26; i++) {
                 this.player1.addCardGameDeck(allCards.removeTopCard());
                 this.player2.addCardGameDeck(allCards.removeTopCard());
             }
@@ -73,83 +73,78 @@ public class WarGame {
                 System.out.println("-------------------------Round number" +
                         " " + roundNumber + " -------------------------");
             }
-            if (firstRound){
-                    this.player1Deck.addCard(player1.drawCard());
-                    this.player2Deck.addCard(player2.drawCard());
-                firstRound = false;
-            }
 
-            if (player1.outOfCards()) {
+            if (this.player1.outOfCards()) {
                 roundNumber = 0;
                 flag = true;
                 firstRound = true;
-                return player2.getName();
+                return this.player2.getName();
             }
-            if (player2.outOfCards()) {
+            if (this.player2.outOfCards()) {
                 roundNumber = 0;
                 flag = true;
                 firstRound = true;
-                return player1.getName();
+                return this.player1.getName();
             }
 
-            if (player1.gameDeck.isEmpty()) {
-                player1.winningDeck.shuffle();
-                while (!player1.winningDeck.isEmpty()) {
-                    this.player1.gameDeck.addCard(player1.winningDeck.removeTopCard());
+            if (this.player1.gameDeck.isEmpty()) {
+                this.player1.winningDeck.shuffle();
+                while (!this.player1.winningDeck.isEmpty()) {
+                    this.player1.gameDeck.addCard(this.player1.winningDeck.removeTopCard());
                 }
             }
-            if (player2.gameDeck.isEmpty()) {
-                player2.winningDeck.shuffle();
-                while (!player2.winningDeck.isEmpty()) {
+            if (this.player2.gameDeck.isEmpty()) {
+                this.player2.winningDeck.shuffle();
+                while (!this.player2.winningDeck.isEmpty()) {
                     this.player2.gameDeck.addCard(player2.winningDeck.removeTopCard());
                 }
             }
 
 
-            this.player1Deck.addCard(player1.drawCard());
-            System.out.println(player1 + " drew " + player1Deck.getCardDeck());
-            this.player2Deck.addCard(player2.drawCard());
-            System.out.println(player2 + " drew " + player2Deck.getCardDeck());
-            int result = player1Deck.getCardDeck().compare(player2Deck.getCardDeck());
+            this.player1Deck.addCard(this.player1.drawCard());
+            System.out.println(this.player1 + " drew " + this.player1Deck.getCardDeck());
+            this.player2Deck.addCard(this.player2.drawCard());
+            System.out.println(this.player2 + " drew " + this.player2Deck.getCardDeck());
+            int result = this.player1Deck.getCardDeck().compare(this.player2Deck.getCardDeck());
             if (result == 1) {
-                for (int i = 0; i < player1Deck.cardDeck.size(); i++) {
-                    this.player1.winningDeck.addCard(player1Deck.removeTopCard());
-                    this.player1.winningDeck.addCard(player2Deck.removeTopCard());
+                while (!this.player1Deck.isEmpty() && !this.player2Deck.isEmpty()) {
+                    this.player1.winningDeck.addCard(this.player2Deck.removeTopCard());
+                    this.player1.winningDeck.addCard(this.player1Deck.removeTopCard());
                 }
-                System.out.println(player1 + " won");
+                System.out.println(this.player1 + " won");
             } else if (result == -1) {
-                for (int i = 0; i < player1Deck.cardDeck.size(); i++) {
-                    this.player2.winningDeck.addCard(player1Deck.removeTopCard());
-                    this.player2.winningDeck.addCard(player2Deck.removeTopCard());
+                while (!this.player1Deck.isEmpty() && !this.player2Deck.isEmpty()) {
+                    this.player2.winningDeck.addCard(this.player2Deck.removeTopCard());
+                    this.player2.winningDeck.addCard(this.player1Deck.removeTopCard());
                 }
-                System.out.println(player2 + " won");
+                System.out.println(this.player2 + " won");
             }
             else {
                     flag = false;
                     System.out.println("Starting a war...");
                     for (int j = 0; j < 2; j++) {
-                        if (player1.outOfCards()) {
-                            return player2.getName();
+                        if (this.player1.outOfCards()) {
+                            return this.player2.getName();
                         }
-                        if (player2.outOfCards()) {
-                            return player1.getName();
+                        if (this.player2.outOfCards()) {
+                            return this.player1.getName();
                         }
-                        if (player1.gameDeck.isEmpty()) {
-                            player1.winningDeck.shuffle();
-                            while (!player1.winningDeck.isEmpty()) {
-                                this.player1.gameDeck.addCard(player1.winningDeck.removeTopCard());
+                        if (this.player1.gameDeck.isEmpty()) {
+                            this.player1.winningDeck.shuffle();
+                            while (!this.player1.winningDeck.isEmpty()) {
+                                this.player1.gameDeck.addCard(this.player1.winningDeck.removeTopCard());
                             }
                         }
-                        if (player2.gameDeck.isEmpty()) {
-                            player2.winningDeck.shuffle();
-                            while (!player2.winningDeck.isEmpty()) {
-                                this.player2.gameDeck.addCard(player2.winningDeck.removeTopCard());
+                        if (this.player2.gameDeck.isEmpty()) {
+                            this.player2.winningDeck.shuffle();
+                            while (!this.player2.winningDeck.isEmpty()) {
+                                this.player2.gameDeck.addCard(this.player2.winningDeck.removeTopCard());
                             }
                         }
-                        this.player1Deck.addCard(player1.drawCard());
-                        System.out.println(player1 + " drew a war card");
-                        this.player2Deck.addCard(player2.drawCard());
-                        System.out.println(player2 + " drew a war card");
+                        this.player1Deck.addCard(this.player1.drawCard());
+                        System.out.println(this.player1 + " drew a war card");
+                        this.player2Deck.addCard(this.player2.drawCard());
+                        System.out.println(this.player2 + " drew a war card");
                     }
 
 
