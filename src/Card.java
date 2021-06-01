@@ -1,4 +1,7 @@
 public class Card {
+    /*** this is the card class
+     *
+     */
     // int of the number of the card
     private int numberOfCard;
     // shape of the card have 4 options

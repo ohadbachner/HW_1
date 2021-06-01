@@ -1,4 +1,7 @@
 public class Player {
+    /***
+     * player class
+     */
     private String name;
     public Deck gameDeck;
     public Deck winningDeck;

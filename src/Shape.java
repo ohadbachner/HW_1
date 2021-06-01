@@ -1,4 +1,7 @@
 public enum Shape {
+    /***
+     * enum have 4 kind of onject with a symbol
+     */
     Spades("♠"),
     Diamonds("♦"),
     Clubs("♣"),

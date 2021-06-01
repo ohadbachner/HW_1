@@ -1,4 +1,5 @@
 public class WarGame {
+    //  war game objects
     private Player player1;
     private Player player2;
     private Deck player1Deck;

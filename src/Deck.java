@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 
 public class Deck extends Card {
+    // object arreylist
       public ArrayList<Card> cardDeck = new ArrayList<>();
 
     public Deck(Boolean fillDeck){
