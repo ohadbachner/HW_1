@@ -54,7 +54,7 @@ public class Card {
                 case 1:
                     return "Ace of " + this.shapeOfCard;
                 case 11:
-                    return "jack of " + this.shapeOfCard;
+                    return "Jack of " + this.shapeOfCard;
                 case 12:
                     return "Queen of " + this.shapeOfCard;
                 case 13:

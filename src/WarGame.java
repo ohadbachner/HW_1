@@ -85,10 +85,6 @@ public class WarGame {
         boolean flag = true;
         //while (!player1.outOfCards() || !player2.outOfCards()) {
         while (true) {
-            if (flag) {
-                System.out.println("-------------------------Round number" +
-                        " " + roundNumber + " -------------------------");
-            }
 
             if (this.player1.outOfCards()) {
                 roundNumber = 0;
@@ -103,6 +99,10 @@ public class WarGame {
                 return this.player1.getName();
             }
 
+            if (flag) {
+                System.out.println("------------------------- Round number" +
+                        " " + roundNumber + " -------------------------");
+            }
             if (this.player1.gameDeck.isEmpty()) {
                 this.player1.winningDeck.shuffle();
                 while (!this.player1.winningDeck.isEmpty()) {
@@ -127,13 +127,25 @@ public class WarGame {
                             this.player1.winningDeck.addCard(this.player2Deck.removeTopCard());
                             this.player1.winningDeck.addCard(this.player1Deck.removeTopCard());
                         }
-                        System.out.println(this.player1 + " won");
-                    } else if (result == -1) {
+                        if (!flag) {
+                            System.out.println(this.player1 + " won the war");
+                        }
+                        else {
+                            System.out.println(this.player1 + " won");
+                        }
+                    }
+                    else if (result == -1) {
                         while (!this.player1Deck.isEmpty() && !this.player2Deck.isEmpty()) {
                             this.player2.winningDeck.addCard(this.player2Deck.removeTopCard());
                             this.player2.winningDeck.addCard(this.player1Deck.removeTopCard());
                         }
-                        System.out.println(this.player2 + " won");
+                        if (!flag) {
+                            System.out.println(this.player2 + " won the war");
+                        }
+                        else {
+                            System.out.println(this.player2 + " won");
+                        }
+
                     } else {
                         flag = false;
                         System.out.println("Starting a war...");
