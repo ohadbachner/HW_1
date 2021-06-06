@@ -1,15 +1,12 @@
 /**
  * this is the card Class
  * <p>
- *     In this class we will make all the cards to go into a the deck
+ * In this class we will make all the cards to go into a the deck
  * </p>
+ *
  * @author Ohad Bachner & shir Geisler
  */
 public class Card {
-    /**
-     *  @param numberOfCard the value of the card
-     *  @param shapeOfCard will get the shape for the enum Shape
-     */
     // int of the number of the card
     private int numberOfCard;
     // shape of the card have 4 options
@@ -28,7 +25,7 @@ public class Card {
 
     /**
      * default Class constructor help to solve problem in @Deck class
-        constructor
+     constructor
      */
     public Card() {
     }
@@ -68,30 +65,22 @@ public class Card {
     /**
      * this method will get other Card and will compare who is bigger
      * @param other Card for compering
-     * @return -1 if the other card bigger than this card, @ 0 if they are the
-                same and will return 1 if this card bigger than the other card
+     * @return -1 if the other card higher than this card, @ 0 if they are the
+    same and will return 1 if this card higher than the other card
      */
     public int compare(Card other) {
-        // will compare between 2 cards and return diffrents values
-        if (this.getNumberOfCard() < other.getNumberOfCard()) {
-            return -1;
-        } else if (this.getNumberOfCard() == other.getNumberOfCard()) {
-            return 0;
-        } else {
-            return 1;
-        }
+        // will compare between 2 cards and return different values
+        return Integer.compare(this.getNumberOfCard(), other.getNumberOfCard());
     }
 
     /**
-     * @override obj method
      * @return each card with is symbol and his number and shape
      */
     public String toString() {
         // override the toString and will return the number and
         if (this.numberOfCard >= 2 && this.numberOfCard < 11) {
             return this.numberOfCard + " of " + this.shapeOfCard;
-        }
-        else {
+        } else {
             switch (this.numberOfCard) {
                 case 1:
                     return "Ace of " + this.shapeOfCard;
@@ -102,9 +91,6 @@ public class Card {
                 case 13:
                     return "King of " + this.shapeOfCard;
             }
-            // need to check if we can throw exception that not make us to
-            // return anything
-
         }
         return "will not get here";
     }

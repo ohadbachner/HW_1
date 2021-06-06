@@ -1,24 +1,25 @@
 public enum Shape {
     /***
-     * enum have 4 kind of onject with a symbol
+     * enum has 4 kind of objects with a symbol
      */
     Spades("♠"),
     Diamonds("♦"),
     Clubs("♣"),
     Hearts("♥");
 
-    private String value;
+    private final String value;
 
-    private Shape(String value)
-    {
+    /**
+     * @param value value of the card
+     */
+    Shape(String value) {
         this.value = value;
     }
 
-    public String toString()
-    {
-        return this.value; //This will return , # or +
+    /**
+     * @return  value of the card
+     */
+    public String toString() {
+        return this.value;
     }
-
-
-
 }
